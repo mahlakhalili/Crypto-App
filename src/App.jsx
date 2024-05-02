@@ -1,10 +1,9 @@
-
+import HomePage from "./Templates/HomePage"
 
 function App() {
-
   return (
     <>
-      <h2>crypto app</h2>
+      <HomePage />
     </>
   )
 }
