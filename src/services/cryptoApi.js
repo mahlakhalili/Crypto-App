@@ -5,4 +5,5 @@ const getCoinList = ()=>{
         `${BASE_URL}/coins/markets?vs_currency=usd&x_cg_demo_api_key=${API_KEY}`
     )
 }
+console.log(getCoinList)
 export {getCoinList}
