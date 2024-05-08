@@ -10,8 +10,10 @@ const HomePage = () => {
         const res = await fetch(getCoinList())
         const json = await res.json()
         setCoins(json)
+        console.log(json)
       }
         getData()
+        
     } , [])
   return (
     <div>
