@@ -1,11 +1,11 @@
-import HomePage from "./Templates/HomePage"
+import HomePage from "./Templates/HomePage";
 
 function App() {
   return (
     <>
       <HomePage />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
