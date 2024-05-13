@@ -1,10 +1,13 @@
-import chartUp from '../assets/chart-up.svg'
-import chartDown from '../assets/chart-down.svg'
+import chartUp from "../assets/chart-up.svg";
+import chartDown from "../assets/chart-down.svg";
+import {BallTriangle} from 'react-loader-spinner';
 
-const TableCoin = ({ coins }) => {
+const TableCoin = ({ coins , isLoading }) => {
   return (
     <div>
-      <table>
+		{
+			isLoading ? <BallTriangle /> : (
+				<table>
         <thead>
           <tr>
             <th>Coin</th>
@@ -16,44 +19,44 @@ const TableCoin = ({ coins }) => {
           </tr>
         </thead>
         <tbody>
-          {coins.map((coin) => 
-              <TableRow coin={coin} key={coin.id} />
-          )}
+          {coins.map((coin) => (
+            <TableRow coin={coin} key={coin.id} />
+          ))}
         </tbody>
       </table>
+			)
+		}
     </div>
-  )
-}
+  );
+};
 
-export default TableCoin
+export default TableCoin;
 
-const TableRow = () =>
-                      {
-                        return(
-                          ({coin : {
-                            name , 
-                            image , 
-                            symbol , 
-                            total_volume , 
-                            current_price , 
-                            price_change_percentage_24h : price_change
-                          }
-                          }) => {
-                            <tr>
-                                  <td>
-                                    <div>
-                                      <img src={image} alt="" />
-                                      <span>{symbol.toUpperCase()}</span>
-                                    </div>
-                                  </td>
-                                  <td>{name}</td>
-                                  <td>${current_price.toLocaleString()}</td>
-                                  <td>{price_change.toFixed(2)}%</td>
-                                  <td>{total_volume.toLocaleString()}</td>
-                                  <td>
-                                    <img src= {price_change > 0 ? chartUp : chartDown} alt="" />
-                                  </td>
-                            </tr>
-        })}
-                
-
+const TableRow = ({
+	coin: {
+    name,
+    image,
+    symbol,
+    total_volume,
+    current_price,
+    price_change_percentage_24h: price_change,
+	},
+}) => {
+	return (
+    <tr>
+    	<td>
+        <div>
+        	<img src={image} alt="" />
+        	<span>{symbol.toUpperCase()}</span>
+        </div>
+      </td>
+      <td>{name}</td>
+      <td>${current_price.toLocaleString()}</td>
+      <td>{price_change.toFixed(2)}%</td>
+      <td>{total_volume.toLocaleString()}</td>
+      <td>
+        <img src={price_change > 0 ? chartUp : chartDown} alt="" />
+      </td>
+    </tr>
+  );
+};
