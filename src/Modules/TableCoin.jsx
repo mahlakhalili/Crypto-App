@@ -33,8 +33,9 @@ const TableCoin = ({ coins, isLoading }) => {
   );
 };
 
-TableCoin.PropTypes = {
+TableCoin.propTypes = {
   coin: PropTypes.object,
+  
 };
 
 export default TableCoin;
@@ -69,3 +70,8 @@ const TableRow = ({
     </tr>
   );
 };
+
+TableRow.propTypes = {
+      coin: PropTypes.object,
+}
+
