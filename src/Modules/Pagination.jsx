@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
 
-const Pagination = () => {
-  const [page, setPage] = useState(1);
-
+const Pagination = ({page , setPage})=>  {
   const preHandler = () => {
     if(page <= 1 ) return
     setPage((page) => page - 1)
@@ -12,6 +10,7 @@ const Pagination = () => {
     if(page >= 10) return
     setPage((page) => page + 1)
   };
+
 
   return (
     <div>
