@@ -35,7 +35,6 @@ const TableCoin = ({ coins, isLoading }) => {
 
 TableCoin.propTypes = {
   coin: PropTypes.object,
-  
 };
 
 export default TableCoin;
@@ -72,6 +71,5 @@ const TableRow = ({
 };
 
 TableRow.propTypes = {
-      coin: PropTypes.object,
-}
-
+  coin: PropTypes.object,
+};
