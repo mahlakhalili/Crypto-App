@@ -3,12 +3,14 @@ import TableCoin from "../Modules/TableCoin";
 import Search from "../Modules/Search";
 import { getCoinList } from "../services/cryptoApi";
 import Pagination from "../Modules/Pagination";
+import Chart from "../Modules/Chart";
 
 const HomePage = () => {
   const [coins, setCoins] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [currency, setCurrency] = useState("usd");
+  const [chart, setChart] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
@@ -28,8 +30,10 @@ const HomePage = () => {
   return (
     <div>
       <Search currency={currency} setCurrency={setCurrency} />
-      <TableCoin coins={coins} isLoading={isLoading} />
+      <TableCoin coins={coins} isLoading={isLoading} setChart={setChart} />
       <Pagination page={page} setPage={setPage} />
+      {/* <Chart /> */}
+      {!!chart && <Chart chart={chart} setChart={setChart}/>}
     </div>
   );
 };
