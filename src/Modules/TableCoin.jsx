@@ -55,9 +55,12 @@ const TableRow = ({
   const showHandler = async() =>{
     try{
       const res = await fetch(marketChart(id))
+      const json = await res.json()
+      setChart(json)
+      console.log(json)
     }
-    catch(){
-
+    catch(error){
+      setChart(null)
     }
   }
   return (
