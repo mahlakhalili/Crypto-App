@@ -3,6 +3,7 @@ const API_KEY = "CG-RFaD9bpZzFAbcXXKtoet3M9e";
 const getCoinList = (page , currency) => {
   return `${BASE_URL}/coins/markets?vs_currency=${currency}&x_page=20&page=${page}_cg_demo_api_key=${API_KEY}`;
 };
-const searchCoin = query => `${BASE_URL}/search?query=${query}&x_cg_demo_api_key=${API_KEY}`
+const searchCoin = query => `${BASE_URL}/search?query=${query}&x_cg_demo_api_key=${API_KEY}`;
+const marketChart = coin => `${BASE_URL}/coins/${coin}/market_chart?vs_currency=usd&days=7`
 console.log(getCoinList);
-export { getCoinList , searchCoin};
+export { getCoinList , searchCoin , marketChart};
