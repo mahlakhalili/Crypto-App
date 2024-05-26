@@ -4,6 +4,7 @@ import { BallTriangle } from "react-loader-spinner";
 import PropTypes from "prop-types";
 
 import styles from "./TableCoin.module.css";
+import { marketChart } from "../services/cryptoApi";
 
 const TableCoin = ({ coins, isLoading , setChart}) => {
   return (
@@ -41,6 +42,7 @@ export default TableCoin;
 
 const TableRow = ({
   coin: {
+    id,
     name,
     image,
     symbol,
@@ -50,8 +52,13 @@ const TableRow = ({
   },
   setChart,
 }) => {
-  const showHandler = () =>{
-    setChart(true)
+  const showHandler = async() =>{
+    try{
+      const res = await fetch(marketChart(id))
+    }
+    catch(){
+
+    }
   }
   return (
     <tr>
