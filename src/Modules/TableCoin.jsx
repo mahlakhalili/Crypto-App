@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import styles from "./TableCoin.module.css";
 import { marketChart } from "../services/cryptoApi";
 
-const TableCoin = ({ coins, isLoading , setChart}) => {
+const TableCoin = ({ coins, isLoading, setChart }) => {
   return (
     <div className={styles.container}>
       {isLoading ? (
@@ -25,7 +25,7 @@ const TableCoin = ({ coins, isLoading , setChart}) => {
           </thead>
           <tbody>
             {coins.map((coin) => (
-              <TableRow coin={coin} key={coin.id} setChart={setChart}/>
+              <TableRow coin={coin} key={coin.id} setChart={setChart} />
             ))}
           </tbody>
         </table>
@@ -52,18 +52,16 @@ const TableRow = ({
   },
   setChart,
 }) => {
-  const showHandler = async() =>{
-    try{
-      const res = await fetch(marketChart(id))
-      const json = await res.json()
-      console.log(json)
-      setChart(json)
-      
+  const showHandler = async () => {
+    try {
+      const res = await fetch(marketChart(id));
+      const json = await res.json();
+      console.log(json);
+      setChart(json);
+    } catch (error) {
+      setChart(null);
     }
-    catch(error){
-      setChart(null)
-    }
-  }
+  };
   return (
     <tr>
       <td>
