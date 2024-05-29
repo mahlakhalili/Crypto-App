@@ -5,7 +5,7 @@ const convertData = (data, type) => {
       [type]: item[1],
     };
   });
-  return convertData;
+  return convertedData;
 };
 
 export { convertData };
