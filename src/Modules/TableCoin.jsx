@@ -40,7 +40,7 @@ TableCoin.propTypes = {
 
 export default TableCoin;
 
-const TableRow = ({coin , setChart}) =>{
+const TableRow = ({ coin, setChart }) => {
   const {
     id,
     name,
@@ -51,13 +51,12 @@ const TableRow = ({coin , setChart}) =>{
     price_change_percentage_24h: price_change,
   } = coin;
 
-
   const showHandler = async () => {
     try {
       const res = await fetch(marketChart(id));
       const json = await res.json();
       console.log(json);
-      setChart({...json , coin:coin});
+      setChart({ ...json, coin: coin });
     } catch (error) {
       setChart(null);
     }
