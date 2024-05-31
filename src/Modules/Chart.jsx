@@ -15,21 +15,28 @@ import {
 
 const Chart = ({ chart, setChart }) => {
   const [type, setType] = useState("prices");
+
+  const typeHandler = event =>{
+    if(event.target.tagName == "BUTTON"){
+      const type = event.target.innerText.toLowerCase().replace(" ", "_")
+    }
+  }
   console.log(convertData(chart, type));
   return (
     <div className={styles.container}>
       <span className={styles.cross} onClick={() => setChart(null)}>
         X
       </span>
-      <div className={styles.name}>
-        <img src={chart.coin.image} />
-        <p>{chart.coin.name}</p>
-      </div>
+
       <div className={styles.chart}>
+        <div className={styles.name}>
+          <img src={chart.coin.image} />
+          <p>{chart.coin.name}</p>
+        </div>
         <div className={styles.graph}>
           <ChartComponent data={convertData(chart, type)} type={type} />
         </div>
-        <div className={styles.types}>
+        <div className={styles.types} onClick={typeHandler}>
           <button>Prices</button>
           <button>Market Caps</button>
           <button>Total Volumes</button>
