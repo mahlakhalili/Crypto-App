@@ -3,13 +3,13 @@ import styles from './Layout.module.css'
 const Layout = ({children}) => {
   return (
     <div>
-      <header>
+      <header className={styles.header}>
         <h1>Crypto App</h1>
         <p>My React Project</p>
       </header>
       {children}
-      <footer>
-        
+      <footer className={styles.footer}>
+        <p>Develope by M.KH</p>
       </footer>
     </div>
   )
