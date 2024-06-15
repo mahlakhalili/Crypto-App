@@ -55,7 +55,7 @@ const Search = ({ currency, setCurrency }) => {
         <div className={styles.searchResult}>
           {isLoading && <BallTriangle width="50px" height="50px" />}
           <ul>
-            {!!coins.map((coin) => (
+            {coins.map((coin) => (
               <li key={coin.id}>
                 <img src={coin.thumb} alt={coin.name} />
                 <p>{coin.name}</p>
